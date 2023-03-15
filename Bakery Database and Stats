@@ -1,0 +1,33 @@
+--Create a store database
+
+create TABLE baked_goods
+(ID integer primary key, Product text, Type text, Price numeric, Stock integer );
+
+INSERT into baked_goods
+
+VALUES
+(1, 'Danish Pretzel', 'Sweet', 1.75, 15),
+(2, 'BBQ Pork Bun', 'Savory', 3.99, 3),
+(3, 'Fruit Tart', 'Sweet', 1.45, 17),
+(4, 'Glazed Donut', 'Sweet', 1.75, 6),
+(5, 'Creme Puff', 'Sweeet', 3.45, 12),
+(6, 'Eclair', 'Sweet', 1.45, 20),
+(7, 'Cake Donut', 'Sweet', 1.75, 20),
+(8, 'Peanut Butter Almond Fudge Brownie', 'Sweet', 3.45, 18),
+(9, 'Cheese Danish', 'Sweet', 1.75, 7),
+(10, 'Custard Bun', 'Sweet', 3.99, 2),
+(11, 'Sausage Egg Bun', 'Savory', 3.99, 0),
+(12, 'Pecan Shortbread Cookies', 'Sweet', 3.45, 14),
+(13, 'Carrot Cake', 'Sweet', 3.99, 9),
+(14, 'Red Velvet Cream Cheese Cupcake', 'Sweet', 5.45, 0),
+(15, 'Mini Cheesecake', 'Sweet', 5.99, 1)
+;
+
+--display database ordered by price
+SELECT * from baked_goods order by Price desc;
+
+--how many baked goods are currently left?
+SELECT SUM(Stock) from baked_goods;
+
+--which baked goods need to be replenished?
+SELECT Product, Stock from baked_goods where Stock <= 10 order by Stock asc;
