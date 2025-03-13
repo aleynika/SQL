@@ -1,5 +1,3 @@
-/* Put your data in here and query it! */
-
 CREATE TABLE pokemon(
   Number     INTEGER,
   Name       TEXT PRIMARY KEY,
