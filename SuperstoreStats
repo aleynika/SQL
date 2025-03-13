@@ -1,0 +1,147 @@
+**Schema (SQLite v3.46)**
+
+    CREATE TABLE superstore (
+        item_id INTEGER PRIMARY KEY,
+        item_name TEXT,
+        category TEXT,
+        price DECIMAL(10, 2),
+        stock_quantity INTEGER,
+        average_rating DECIMAL(3, 2)
+    );
+    
+    INSERT INTO superstore (item_id, item_name, category, price, stock_quantity, average_rating)
+    VALUES
+        (1, 'Stainless Steel Cookware Set', 'Kitchen Supplies', 89.99, 50, 4.6),
+        (2, 'Memory Foam Mattress', 'Furnishings', 499.99, 30, 4.8),
+        (3, 'Smart LED TV', 'Electronics', 549.00, 20, 4.5),
+        (4, 'Robot Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+        (5, 'Wireless Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+        (6, 'Non-Stick Baking Set', 'Kitchen Supplies', 29.95, 80, 4.4),
+        (7, 'Cotton Bedding Set', 'Furnishings', 89.00, 25, 4.7),
+        (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+        (9, 'Air Purifier', 'Appliances', 129.50, 35, 4.6),
+        (10, 'Premium Coffee Maker', 'Kitchen Supplies', 79.99, 50, 4.9),
+        (11, 'Ergonomic Office Chair', 'Furnishings', 189.00, 20, 4.5),
+        (12, 'Wireless Earbuds', 'Electronics', 49.99, 75, 4.3),
+        (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
+        (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
+        (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+        
+        
+    -- © Copyright 2025 Break Into Tech  --
+    
+
+---
+
+**Query #1**
+
+    SELECT item_name, price
+    FROM superstore
+    ORDER BY price desc;
+
+| item_name                    | price  |
+| ---------------------------- | ------ |
+| Smart LED TV                 | 549    |
+| Memory Foam Mattress         | 499.99 |
+| Robot Vacuum Cleaner         | 199.5  |
+| Ergonomic Office Chair       | 189    |
+| Air Purifier                 | 129.5  |
+| Stainless Steel Cookware Set | 89.99  |
+| Cotton Bedding Set           | 89     |
+| Premium Coffee Maker         | 79.99  |
+| Smart Home Security Camera   | 79.95  |
+| Wireless Earbuds             | 49.99  |
+| Slow Cooker                  | 49.95  |
+| Wireless Bluetooth Speaker   | 39.99  |
+| Cutlery Set                  | 34.5   |
+| Non-Stick Baking Set         | 29.95  |
+| Cozy Throw Blanket           | 24.99  |
+
+---
+**Query #2**
+
+    
+    
+    --Customer Ratings
+    
+    --Top 5
+    SELECT item_id, item_name, average_rating
+    FROM superstore
+    WHERE average_rating > 4
+    GROUP BY item_name
+    ORDER BY average_rating desc
+    LIMIT 5;
+
+| item_id | item_name                    | average_rating |
+| ------- | ---------------------------- | -------------- |
+| 10      | Premium Coffee Maker         | 4.9            |
+| 2       | Memory Foam Mattress         | 4.8            |
+| 13      | Slow Cooker                  | 4.7            |
+| 7       | Cotton Bedding Set           | 4.7            |
+| 1       | Stainless Steel Cookware Set | 4.6            |
+
+---
+**Query #3**
+
+    
+    
+    SELECT item_id, item_name, average_rating
+    FROM superstore
+    WHERE average_rating < 4.01
+    GROUP BY item_name
+    ORDER BY average_rating asc
+    LIMIT 5;
+
+There are no results to be displayed.
+
+---
+**Query #4**
+
+    
+    
+    --Rate average
+    SELECT AVG(average_rating)
+    FROM superstore;
+
+| AVG(average_rating) |
+| ------------------- |
+| 4.48                |
+
+---
+**Query #5**
+
+    
+    
+    --Inventory Mgmt
+    
+    --low category check
+    SELECT SUM(stock_quantity),category
+    FROM superstore
+    GROUP BY category
+    HAVING SUM(stock_quantity) < 100
+    ORDER BY stock_quantity asc;
+
+There are no results to be displayed.
+
+---
+**Query #6**
+
+    
+    
+    --low item check
+    SELECT SUM(stock_quantity),item_name, item_id
+    FROM superstore
+    GROUP BY item_name
+    HAVING SUM(stock_quantity) < 26
+    ORDER BY stock_quantity asc;
+
+| SUM(stock_quantity) | item_name                  | item_id |
+| ------------------- | -------------------------- | ------- |
+| 15                  | Smart Home Security Camera | 8       |
+| 20                  | Ergonomic Office Chair     | 11      |
+| 20                  | Smart LED TV               | 3       |
+| 25                  | Cotton Bedding Set         | 7       |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/PvBAaQwEUSWAxZCsg4Vmx/243)
