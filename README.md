@@ -38,7 +38,7 @@ This project focuses on analyzing Pokémon statistics by primary type, including
 
 ## License 📜
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/aleynika/SQL/blob/main/LICENSE) file for details.
 
 ---
 
