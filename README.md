@@ -1,6 +1,6 @@
 # SQL Portfolio 🗂️
 
-Welcome to my SQL portfolio! This repository showcases my work with SQLite through various projects, where I’ve applied fundamental and advanced SQL techniques to analyze data and derive insights. Below is a brief description of the projects and the SQL techniques used. 🚀
+Welcome to my SQL portfolio! This repository showcases my work with SQLite through various projects, where I’ve applied fundamental and advanced SQL techniques to analyze data and derive insights. Below is a brief description of a few projects and the SQL techniques used. 🚀
 
 ## Projects 📊
 
