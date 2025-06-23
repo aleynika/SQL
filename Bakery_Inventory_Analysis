@@ -10,7 +10,7 @@ VALUES
 (2, 'BBQ Pork Bun', 'Savory', 3.99, 3),
 (3, 'Fruit Tart', 'Sweet', 1.45, 17),
 (4, 'Glazed Donut', 'Sweet', 1.75, 6),
-(5, 'Creme Puff', 'Sweeet', 3.45, 12),
+(5, 'Creme Puff', 'Sweet', 3.45, 12),
 (6, 'Eclair', 'Sweet', 1.45, 20),
 (7, 'Cake Donut', 'Sweet', 1.75, 20),
 (8, 'Peanut Butter Almond Fudge Brownie', 'Sweet', 3.45, 18),
